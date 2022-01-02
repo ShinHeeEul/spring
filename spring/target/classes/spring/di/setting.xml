@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- Context : Autowired를 사용하기 위해 namespace import -->
+	<!-- <context:annotation-config /> annotation이 있으니 객체 안을 살펴봐라는 의미
+	 -->
+	<context:component-scan base-package="spring.di.ui, spring.di.entity"/> <!-- Component를 활용할때 사용되는 명령어, Component가 있는지 패키지를 확인해보라는 의미-->
+	<!--이를 읽어들일 때 객체 안도 확인하므로 annotation-config가 필요없음-->
+	
+	
+	<!-- 스프링에 지시하는 방법  클래스 생성-->
+	<!-- <bean id = "exam1" class= "spring.di.entity.NewlecExam" p:kor="10"/>
+	<bean id = "exam" class= "spring.di.entity.NewlecExam" p:kor="111"/>
+	 -->	
+	 <!-- <constructor-arg name = "kor" value = "300"></constructor-arg>
+		<constructor-arg index = "1" value = "20"></constructor-arg>
+		<constructor-arg value = "10"></constructor-arg>
+		<constructor-arg index = "3" type="int" value = "40"></constructor-arg>
+		
+		<property name="eng" value = "10"></property>
+		<property name="math" value = "10"></property>
+		<property name="com" value = "10"></property>
+		
+	</bean> -->
+	
+	<!-- <bean id = "console" class = "spring.di.ui.GridExamConsole">
+		스프링에 함수 
+		set과 대문자는 소문자로 하면 exam -> setExam이 됨	
+		<property name ="exam" ref = "exam"></property>
+	</bean> -->
+	
+	<!-- <bean id="exams" class="java.util.ArrayList">
+	생성자를 통해 객체 정의를 할 경우 constructor-arg를 사용
+
+		<constructor-arg>
+	 collection일 경우 list 태그를 해서 초기화 내용 설정
+	 property의 경우 메소드로부터 생성
+			<list>
+					 <bean class= "spring.di.entity.NewlecExam" p:kor="11"/>  
+					 	
+					<ref bean="exam"></ref>
+			</list>
+		</constructor-arg>
+		
+	</bean> -->
+	
+	<!-- constructor-arg를 이용하지 않고 생성하는 방법, 무슨 객체를 생성해야하는지 명시해주어야 함 -->
+		<!-- <util:list id="exams" list-class="java.util.ArrayList">
+					 <bean class= "spring.di.entity.NewlecExam" p:kor="11"/>  
+					<ref bean="exam"></ref>
+			</util:list> -->
+</beans>
