@@ -13,11 +13,47 @@
 	<!-- 스프링에 지시하는 방법  클래스 생성-->
 	<bean id = "target" class= "spring.aop.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"/>
 	<bean id="logAroundAdvice" class="spring.aop.advice.LogAroundAdvice" />
+	<bean id="logBeforeAdvice" class="spring.aop.advice.logBeforeAdvice" />
+	<bean id="logAfterReturnAdvice" class="spring.aop.advice.logAfterReturnAdvice" />
+	<bean id="logAfterThrowingAdvice" class="spring.aop.advice.LogAfterThrowingAdvice" />
+	
+	<!-- <bean id="classicPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="total"/>
+	</bean>
+	
+	<bean id="classicBeforeAdvisor" class="org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor">
+		<property name="advice" ref="logBeforeAdvice"/>
+		<property name="pointcut" ref="classicPointcut"/>
+	</bean> -->
+	
+	 <!-- <bean id="classicBeforeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice" ref="logBeforeAdvice"/>
+		<property name="mappedNames">
+			<list>
+				<value>total</value>
+				<value>avg</value>
+			</list>
+		</property>
+	</bean> -->
+	
+	<bean id="classicBeforeAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="logBeforeAdvice"/>
+		<property name="patterns">
+			<list>
+				<value>.*to.*</value>
+				
+			</list>
+		</property>
+	</bean>
+	
 	<bean id = "proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="target" />
 		<property name="interceptorNames">
 			<list>
 				<value>logAroundAdvice<!-- list가 참조열이기 때문에 value는 참조하는 녀석의 이름을 넣어주면 된다 --></value>
+				<value>classicBeforeAdvisor<!-- 특정 포인트만 위빙 되도록 advisor와 pointcut을 연결해줌 --></value>
+				<value>logAfterReturnAdvice</value>
+				<value>logAfterThrowingAdvice</value>
 			</list>
 		</property>
 	</bean>

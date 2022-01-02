@@ -23,6 +23,7 @@ public class Program {
 		
 		Exam proxy = (Exam) context.getBean("proxy");
 		
+		
 //		
 //		Exam exam = new NewlecExam(1,1,1,1);
 //		

@@ -53,6 +53,20 @@ import spring.di.ui.ExamConsole;
  * 		대표적으로 로그, 보안, 트랜잭션 처리등 개발자의 관점에서 필요한 코드들이 통상적으로 주 업무를 위, 아래로 감싸는 형태로 작성되는 경우가 많음
  * 		-> 이러한 개발자 관점 코드(Cross Cutting Concern)와 사용자 관점 코드(주업무, Core Concern)를 분리하는 것
  * 		proxy : 주업무를 갖고 있는 녀석을 호출해주는 역할 -> 사용자는 proxy를 호출
+ * 
+ * 		특정함수들만 proxy를 통해 위빙할 수 있도록 하려면
+ * 		weaving(위빙) : proxy를 통해 위 아래로 aop를 적용시키는 것
+ * 		JoinPoint : weaving에 대상이 되는 포인트, 기본적으로 전 함수로 설정
+ * 		Pointcuts : JoinPoint를 나누어 특정함수에만 aop가 적용될 수 있도록 하는 것 - 이를 중간에서 연결해주는 녀석이 advisor
+ * 
+ * 
+ * ========================================
+ * 
+ * *** SPRING MVC
+ * tomcat : 웹 애플리케이션 서버로 웹서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 jsp와 자바 서블릿이 실행할 수 있는 환경을 제공한다.
+ * spring web : tomcat에서 spring을 사용하기 위해 spring Dispatcher를 장착시켜 tomcat에서 spring 환경으로 옮긴 것
+ * 		- 이를 개발하는데 xml, annotation, java를 사용
+ * spring boot : spring web을 개발할 때에 개발자들 간의 차이를 좁히기 위한 부가적인 기능을 제공, 스프링(Spring)을 더 쉽게 이용하기 위한 도구
  * */
 
 
