@@ -67,6 +67,8 @@ import spring.di.ui.ExamConsole;
  * spring web : tomcat에서 spring을 사용하기 위해 spring Dispatcher를 장착시켜 tomcat에서 spring 환경으로 옮긴 것
  * 		- 이를 개발하는데 xml, annotation, java를 사용
  * spring boot : spring web을 개발할 때에 개발자들 간의 차이를 좁히기 위한 부가적인 기능을 제공, 스프링(Spring)을 더 쉽게 이용하기 위한 도구
+ * spring WVC - sublet과 jsp 먼저 듣고 오기
+ * 
  * */
 
 
