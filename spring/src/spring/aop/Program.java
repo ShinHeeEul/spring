@@ -27,7 +27,7 @@ public class Program {
 //		
 //		Exam exam = new NewlecExam(1,1,1,1);
 //		
-//		//////////////////////////////////////////////////
+//		/////////////////////////////////////////////////
 //		// 순수 자바로만 구성한 코드
 //		// proxy : 곁다리 업무를 갖고 있는 녀석
 //		Exam proxy = (Exam) Proxy.newProxyInstance(/*실질적인 객체 로드*/NewlecExam.class.getClassLoader(),
